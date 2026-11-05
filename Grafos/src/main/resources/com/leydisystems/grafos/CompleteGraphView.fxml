@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.leydisystems.grafos.controller.CompleteGraphController"
+            prefWidth="950" prefHeight="650"
+            style="-fx-background-color:#F3F2FF;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20"
+              style="-fx-background-color:#A34765;-fx-padding:18;">
+            <Label text="GRAFO COMPLETO"
+                   style="-fx-text-fill:white;-fx-font-size:23px;-fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="← Regresar" onAction="#goBack"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="15" style="-fx-padding:15;">
+
+            <VBox spacing="10" prefWidth="245"
+                  style="-fx-background-color:white;-fx-padding:15;-fx-background-radius:12;">
+
+                <Label text="OPERACIONES"
+                       style="-fx-font-size:18px;-fx-font-weight:bold;"/>
+
+                <TextField fx:id="vertexField" promptText="Nombre del vértice"/>
+                <Button text="Agregar vértice" onAction="#addVertex" maxWidth="Infinity"/>
+
+                <Label text="Las conexiones se crean automáticamente."/>
+
+                <Separator/>
+                <TextField fx:id="searchField" promptText="Vértice"/>
+                <Button text="Buscar vértice" onAction="#searchVertex" maxWidth="Infinity"/>
+                <Button text="Eliminar vértice" onAction="#removeVertex" maxWidth="Infinity"/>
+
+                <Separator/>
+                <Button text="Recorrido BFS" onAction="#executeBFS" maxWidth="Infinity"/>
+                <Button text="Recorrido DFS" onAction="#executeDFS" maxWidth="Infinity"/>
+                <Button text="Mostrar grafo" onAction="#showGraph" maxWidth="Infinity"/>
+                <Button text="Limpiar grafo" onAction="#clearGraph" maxWidth="Infinity"/>
+
+            </VBox>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="Todos los vértices están conectados"
+                       style="-fx-font-size:19px;-fx-font-weight:bold;-fx-text-fill:#A34765;"/>
+                <Canvas fx:id="graphCanvas" width="630" height="450"/>
+                <TextArea fx:id="resultArea" editable="false" prefHeight="90"
+                          promptText="Resultados..."/>
+            </VBox>
+
+        </HBox>
+    </center>
+</BorderPane>

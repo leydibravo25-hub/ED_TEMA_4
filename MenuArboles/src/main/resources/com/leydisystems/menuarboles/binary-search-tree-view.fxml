@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.leydisystems.menuarboles.controller.BinarySearchTreeController"
+            style="-fx-background-color:#052e2b;">
+    <top>
+        <VBox spacing="8" style="-fx-background-color:#047857;-fx-padding:24;">
+            <Label text="ÁRBOL BINARIO DE BÚSQUEDA"
+                   style="-fx-text-fill:white;-fx-font-size:25px;-fx-font-weight:bold;"/>
+            <Label text="Los valores menores van a la izquierda y los mayores a la derecha"
+                   style="-fx-text-fill:#d1fae5;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="14" style="-fx-padding:22;">
+            <HBox spacing="10">
+                <TextField fx:id="valueField" promptText="Ingresa un número"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Insertar" onAction="#addValue"
+                        style="-fx-background-color:#059669;-fx-text-fill:white;"/>
+                <Button text="Buscar" onAction="#searchValueAction"/>
+                <Button text="Vaciar árbol" onAction="#clearTreeAction"
+                        style="-fx-background-color:#dc2626;-fx-text-fill:white;"/>
+            </HBox>
+            <Label fx:id="statusLabel" text="Esperando valores"
+                   style="-fx-text-fill:#6ee7b7;"/>
+            <Label text="ÁRBOL DE BÚSQUEDA"
+                   style="-fx-text-fill:white;-fx-font-size:17px;-fx-font-weight:bold;"/>
+            <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                <content>
+                    <Pane fx:id="treePane" prefWidth="850" prefHeight="430"
+                          style="-fx-background-color:#064e3b;"/>
+                </content>
+            </ScrollPane>
+            <Label fx:id="resultLabel" text="Recorrido: —" wrapText="true"
+                   style="-fx-text-fill:white;"/>
+            <FlowPane hgap="8" vgap="8">
+                <Button text="Preorden" onAction="#showPreorder"/>
+                <Button text="Inorden" onAction="#showInorder"/>
+                <Button text="Posorden" onAction="#showPostorder"/>
+                <Button text="Por niveles" onAction="#showLevels"/>
+                <Button text="Regresar" onAction="#returnToMenu"
+                        style="-fx-background-color:#059669;-fx-text-fill:white;"/>
+            </FlowPane>
+        </VBox>
+    </center>
+</BorderPane>

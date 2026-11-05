@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.leydisystems.menuarboles.controller.TrieTreeController"
+            style="-fx-background-color:#083344;">
+    <top>
+        <VBox spacing="8" style="-fx-background-color:#0e7490;-fx-padding:24;">
+            <Label text="ÁRBOL TRIE"
+                   style="-fx-text-fill:white;-fx-font-size:28px;-fx-font-weight:bold;"/>
+            <Label text="Inserción y búsqueda de palabras por letras"
+                   style="-fx-text-fill:#cffafe;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="14" style="-fx-padding:22;">
+            <HBox spacing="10">
+                <TextField fx:id="wordField" promptText="Escribe una palabra"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Agregar palabra" onAction="#addWord"
+                        style="-fx-background-color:#0891b2;-fx-text-fill:white;"/>
+                <Button text="Buscar" onAction="#searchWord"/>
+            </HBox>
+            <HBox spacing="10">
+                <Button text="Mostrar palabras" onAction="#showWords"/>
+                <Button text="Limpiar Trie" onAction="#clearWords"
+                        style="-fx-background-color:#dc2626;-fx-text-fill:white;"/>
+                <Button text="Regresar al menú" onAction="#returnToMenu"
+                        style="-fx-background-color:#0e7490;-fx-text-fill:white;"/>
+            </HBox>
+            <Label fx:id="statusLabel" text="Trie listo"
+                   style="-fx-text-fill:#67e8f9;"/>
+            <Label text="ESTRUCTURA DE LETRAS"
+                   style="-fx-text-fill:white;-fx-font-size:17px;-fx-font-weight:bold;"/>
+            <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                <content>
+                    <Pane fx:id="treePane" prefWidth="850" prefHeight="430"
+                          style="-fx-background-color:#164e63;"/>
+                </content>
+            </ScrollPane>
+            <Label fx:id="resultLabel" text="Palabras: —" wrapText="true"
+                   style="-fx-text-fill:white;"/>
+        </VBox>
+    </center>
+</BorderPane>

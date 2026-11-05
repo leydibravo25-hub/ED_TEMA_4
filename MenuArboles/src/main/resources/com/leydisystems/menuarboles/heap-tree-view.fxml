@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.leydisystems.menuarboles.controller.HeapTreeController"
+            style="-fx-background-color:#431407;">
+    <top>
+        <VBox spacing="8" style="-fx-background-color:#c2410c;-fx-padding:24;">
+            <Label text="HEAP MÍNIMO"
+                   style="-fx-text-fill:white;-fx-font-size:28px;-fx-font-weight:bold;"/>
+            <Label text="El elemento menor se encuentra en la raíz"
+                   style="-fx-text-fill:#ffedd5;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="14" style="-fx-padding:22;">
+            <HBox spacing="8">
+                <TextField fx:id="valueField" promptText="Número positivo"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Insertar" onAction="#addValue"
+                        style="-fx-background-color:#ea580c;-fx-text-fill:white;"/>
+                <Button text="Buscar" onAction="#searchValueAction"/>
+                <Button text="Consultar mínimo" onAction="#showMinimum"/>
+                <Button text="Extraer mínimo" onAction="#extractMinimum"
+                        style="-fx-background-color:#b45309;-fx-text-fill:white;"/>
+            </HBox>
+            <Button text="Limpiar heap" onAction="#clearTreeAction"
+                    style="-fx-background-color:#dc2626;-fx-text-fill:white;"/>
+            <Label fx:id="statusLabel" text="Heap listo"
+                   style="-fx-text-fill:#fdba74;"/>
+            <Label text="VISUALIZACIÓN DEL HEAP"
+                   style="-fx-text-fill:white;-fx-font-size:17px;-fx-font-weight:bold;"/>
+            <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                <content>
+                    <Pane fx:id="treePane" prefWidth="850" prefHeight="430"
+                          style="-fx-background-color:#7c2d12;"/>
+                </content>
+            </ScrollPane>
+            <Label fx:id="resultLabel" text="Recorrido: —" wrapText="true"
+                   style="-fx-text-fill:white;"/>
+            <FlowPane hgap="8" vgap="8">
+                <Button text="Preorden" onAction="#showPreorder"/>
+                <Button text="Inorden" onAction="#showInorder"/>
+                <Button text="Posorden" onAction="#showPostorder"/>
+                <Button text="Por niveles" onAction="#showLevels"/>
+                <Button text="Regresar" onAction="#returnToMenu"
+                        style="-fx-background-color:#ea580c;-fx-text-fill:white;"/>
+            </FlowPane>
+        </VBox>
+    </center>
+</BorderPane>

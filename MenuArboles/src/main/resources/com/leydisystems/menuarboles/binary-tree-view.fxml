@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.leydisystems.menuarboles.controller.BinaryTreeController"
+            style="-fx-background-color:#0f172a;">
+
+    <top>
+        <VBox spacing="8" style="-fx-background-color:#1d4ed8;-fx-padding:24;">
+            <Label text="ÁRBOL BINARIO"
+                   style="-fx-text-fill:white;-fx-font-size:27px;-fx-font-weight:bold;"/>
+            <Label text="Inserción por niveles y recorridos"
+                   style="-fx-text-fill:#dbeafe;-fx-font-size:14px;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="14" style="-fx-padding:22;">
+            <HBox spacing="10">
+                <TextField fx:id="valueField"
+                           promptText="Número entero positivo"
+                           style="-fx-background-radius:8;"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Agregar" onAction="#addValue"
+                        style="-fx-background-color:#2563eb;-fx-text-fill:white;-fx-font-weight:bold;"/>
+                <Button text="Buscar" onAction="#searchValueAction"
+                        style="-fx-background-color:#334155;-fx-text-fill:white;"/>
+                <Button text="Limpiar" onAction="#clearTreeAction"
+                        style="-fx-background-color:#dc2626;-fx-text-fill:white;"/>
+            </HBox>
+
+            <Label fx:id="statusLabel" text="Listo para comenzar"
+                   style="-fx-text-fill:#93c5fd;-fx-font-size:14px;"/>
+
+            <Label text="VISUALIZACIÓN DE NODOS"
+                   style="-fx-text-fill:white;-fx-font-size:17px;-fx-font-weight:bold;"/>
+
+            <ScrollPane fitToWidth="true" fitToHeight="true"
+                        VBox.vgrow="ALWAYS"
+                        style="-fx-background:#111c34;-fx-background-color:#111c34;">
+                <content>
+                    <Pane fx:id="treePane" prefWidth="850" prefHeight="430"
+                          style="-fx-background-color:#111c34;"/>
+                </content>
+            </ScrollPane>
+
+            <Label fx:id="resultLabel" text="Recorrido: —"
+                   wrapText="true"
+                   style="-fx-text-fill:white;-fx-font-size:14px;"/>
+
+            <FlowPane hgap="8" vgap="8">
+                <Button text="Preorden" onAction="#showPreorder"/>
+                <Button text="Inorden" onAction="#showInorder"/>
+                <Button text="Posorden" onAction="#showPostorder"/>
+                <Button text="Por niveles" onAction="#showLevels"/>
+                <Button text="Regresar al menú" onAction="#returnToMenu"
+                        style="-fx-background-color:#2563eb;-fx-text-fill:white;"/>
+            </FlowPane>
+        </VBox>
+    </center>
+</BorderPane>

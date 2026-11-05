@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.leydisystems.menuarboles.controller.BTreeController"
+            style="-fx-background-color:#500724;">
+    <top>
+        <VBox spacing="8" style="-fx-background-color:#be185d;-fx-padding:24;">
+            <Label text="ÁRBOL B"
+                   style="-fx-text-fill:white;-fx-font-size:28px;-fx-font-weight:bold;"/>
+            <Label text="Gestión de claves ordenadas"
+                   style="-fx-text-fill:#fce7f3;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="14" style="-fx-padding:22;">
+            <HBox spacing="10">
+                <TextField fx:id="valueField" promptText="Nueva clave"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Agregar clave" onAction="#addValue"
+                        style="-fx-background-color:#db2777;-fx-text-fill:white;"/>
+                <Button text="Buscar" onAction="#searchValueAction"/>
+                <Button text="Limpiar" onAction="#clearTreeAction"
+                        style="-fx-background-color:#dc2626;-fx-text-fill:white;"/>
+            </HBox>
+            <Label fx:id="statusLabel" text="Listo para agregar claves"
+                   style="-fx-text-fill:#f9a8d4;"/>
+            <Label text="CLAVES DEL ÁRBOL"
+                   style="-fx-text-fill:white;-fx-font-size:17px;-fx-font-weight:bold;"/>
+            <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                <content>
+                    <Pane fx:id="treePane" prefWidth="850" prefHeight="430"
+                          style="-fx-background-color:#831843;"/>
+                </content>
+            </ScrollPane>
+            <Label fx:id="resultLabel" text="Recorrido: —" wrapText="true"
+                   style="-fx-text-fill:white;"/>
+            <FlowPane hgap="8" vgap="8">
+                <Button text="Preorden" onAction="#showPreorder"/>
+                <Button text="Inorden" onAction="#showInorder"/>
+                <Button text="Posorden" onAction="#showPostorder"/>
+                <Button text="Por niveles" onAction="#showLevels"/>
+                <Button text="Regresar" onAction="#returnToMenu"
+                        style="-fx-background-color:#db2777;-fx-text-fill:white;"/>
+            </FlowPane>
+        </VBox>
+    </center>
+</BorderPane>

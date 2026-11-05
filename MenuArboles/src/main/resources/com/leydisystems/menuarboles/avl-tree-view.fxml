@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.leydisystems.menuarboles.controller.AVLTreeController"
+            style="-fx-background-color:#1e103d;">
+    <top>
+        <VBox spacing="8" style="-fx-background-color:#6d28d9;-fx-padding:24;">
+            <Label text="ÁRBOL AVL"
+                   style="-fx-text-fill:white;-fx-font-size:28px;-fx-font-weight:bold;"/>
+            <Label text="Árbol binario de búsqueda con balance automático"
+                   style="-fx-text-fill:#ede9fe;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="14" style="-fx-padding:22;">
+            <HBox spacing="10">
+                <TextField fx:id="valueField" promptText="Número positivo"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Insertar y balancear" onAction="#addValue"
+                        style="-fx-background-color:#7c3aed;-fx-text-fill:white;"/>
+                <Button text="Buscar" onAction="#searchValueAction"/>
+                <Button text="Reiniciar" onAction="#clearTreeAction"
+                        style="-fx-background-color:#dc2626;-fx-text-fill:white;"/>
+            </HBox>
+            <Label fx:id="statusLabel" text="El AVL está listo"
+                   style="-fx-text-fill:#c4b5fd;"/>
+            <Label text="ESTRUCTURA BALANCEADA"
+                   style="-fx-text-fill:white;-fx-font-size:17px;-fx-font-weight:bold;"/>
+            <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                <content>
+                    <Pane fx:id="treePane" prefWidth="850" prefHeight="430"
+                          style="-fx-background-color:#2e1065;"/>
+                </content>
+            </ScrollPane>
+            <Label fx:id="resultLabel" text="Recorrido: —" wrapText="true"
+                   style="-fx-text-fill:white;"/>
+            <FlowPane hgap="8" vgap="8">
+                <Button text="Preorden" onAction="#showPreorder"/>
+                <Button text="Inorden" onAction="#showInorder"/>
+                <Button text="Posorden" onAction="#showPostorder"/>
+                <Button text="Por niveles" onAction="#showLevels"/>
+                <Button text="Regresar" onAction="#returnToMenu"
+                        style="-fx-background-color:#7c3aed;-fx-text-fill:white;"/>
+            </FlowPane>
+        </VBox>
+    </center>
+</BorderPane>
